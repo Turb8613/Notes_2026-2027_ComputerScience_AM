@@ -44,3 +44,7 @@ Git status
 Git pull
 Git push
 ```
+
+*If your error says something about a merge conflict...*
+1. cry
+2. Ask for help
