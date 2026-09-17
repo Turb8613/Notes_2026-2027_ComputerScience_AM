@@ -30,5 +30,13 @@ These are notes about the 26-27 year at sictc Computer science Am course
 git add .
 git commit -m "A breif detail of what is sendign up to github"
 git push
+```
+##Retrieve information from your GitHub repo
 
-...
+```
+Git fetch 
+Git Pull
+Git status
+```
+
+
