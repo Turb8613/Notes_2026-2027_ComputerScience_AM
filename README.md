@@ -24,7 +24,7 @@ These are notes about the 26-27 year at sictc Computer science Am course
 * Once the folder finishes downloading, run the command `ls` and see if your folder exists.
 * move into your repo by cd FOldername
 
-## And and send data to github
+##And and send data to github
 
 ```
 git add .
@@ -38,5 +38,9 @@ Git fetch
 Git Pull
 Git status
 ```
+*If I have a **updates were rejected because the remote contains work that you do not have locally**
 
-
+```
+Git pull
+Git push
+```
