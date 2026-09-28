@@ -1,0 +1,13 @@
+Genneral comands
+Vim <file> == Makes a new file
+i=> insert mode or able to add data to the file 
+esc => takes us back to the command mode / navagation mode or whatever it is
+
+WHEN IN COMMAND MODE
+
+:w makes it avble to save while continuing eddits while in command mode
+:wq saves and exits the file 
+:q! closses without saving
+u => undo the last change
+Ctrl + R is redo
+

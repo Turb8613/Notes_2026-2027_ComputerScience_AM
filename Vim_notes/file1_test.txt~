@@ -1,0 +1,32 @@
+Class notes for vim
+
+Genral commands 
+
+-Vim <filename> = Creates a new file or opens a file aready in vim
+-WHen you enter vim, you will be in command mode
+	- :w saves file ans allows you to continue working 
+	-:wq = saves and exit the file
+	-:q! = force quits a file
+	- :u = undo a file 
+	- ctrl + r = Redo
+	-:x saves a file
+	-collorscheme <comorscheme>: chang the color output on your file 
+	- i tkes you to insert mode
+		-Will be indicated by a --INSERT-- Allwet in the bottom left
+		of your scren 
+
+
+-movement:
+	j== move down
+	k== move up
+	l== move right	
+	h== move left
+	gg== moves to the top of the file 
+	G== takes us to the bottom
+	b== bacwards one word
+	e== moves forward to the end of the word
+	W== skips over puncuation unlike w
+	E== Moves forward to the end of the word including puncuation
+	B== Moves backwords including puncuation
+
+	

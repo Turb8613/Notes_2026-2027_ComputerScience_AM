@@ -1,0 +1,64 @@
+Class notes for vim
+
+Genral commands 
+
+-Vim <filename> = Creates a new file or opens a file aready in vim
+-When you enter vim, you will be in command mode
+	- :w saves file ans allows you to continue working 
+	-:wq = saves and exit the file
+	-:q! = force quits a file
+	- :u = undo a file 
+	- ctrl + r = Redo
+	-:x saves a file
+	-collorscheme <comorscheme>: chang the color output on your file 
+	- i tkes you to insert mode
+		-Will be indicated by a --INSERT-- Allwet in the bottom left
+		of your scren 
+
+-Movement:
+	j== move down
+	k== move up
+	l== move right	
+	h== move left
+	gg== moves to the top of the file 
+	G== takes us to the bottom
+	b== bacwards one word
+	e== moves forward to the end of the word
+	W== skips over puncuation unlike w
+	E== Moves forward to the end of the word including puncuation
+	B== Moves backwords including puncuation
+	#moveCharacter = # move <direction>
+	:# = move to # line
+
+	/?== serchers for a pattern
+	nN== forward and back in serch
+Advanced Commands:
+	yanky == yy to copy the entire line  
+	paste == p  to paste the entire line below the current line 
+	pastw == P  to paste the enrire linw over the current line
+	# yy or # y == yankes a # of lines 
+	dd == delete a line your cursor is on
+	d# == deletes a # of lines 
+	#dd-
+	shift :#,$d == deletes from line # till the end
+	:start#, end commans and if I want 2 and end use $
+	$ == wind card
+	
+Advanced insert
+	I==takes you to the start of the line when you go from command mode
+	a == insert mode the the right of the cursor
+	A == insert mode to the end of the line
+	o == insert mode creates a new line below the cursor
+	O == Insert mode creates a new line above the cursor
+	x == deletes a character to the right of the cursor 
+	X == deletes a character to the left of the cursor
+
+Diffrent modes 
+	navagation/command/normal-- its for looking at the text and doing comands
+	Inster mode -- is for addign items to the file ex text
+	replace mode get to it by r -- search and replace charicters 
+	visiual mode get to it by v -- it lets yoyu select the text and yank it 
+	Tab over multipule lines 
+		1.Enter vis mode
+		2.heithlight lines with arrow 
+		3.then use eninqualitys like <>
