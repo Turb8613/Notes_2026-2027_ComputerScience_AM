@@ -18,3 +18,28 @@ else: print("restart it right now. Ticket closed.")
 if q4 == "yes":
     print("Its a DNS issue its always dns. ESCALATE TO TIER 3")
 else: print("plug it in Wifi does not come from the air.")
+
+
+q5 = input("Did primary bacup file generate?")
+q6 ="6"
+q7 ="7"
+
+if q5 == "yes":
+    q6 = input("Target destination nas or cloud?")
+else: q7 = input("disk full or prossess timed out")
+
+if q6 == "nas":
+    print("Check local SMB storage quota")
+else: print("Check AWS s3 bucket write permissions")
+
+if q7 == "full":
+    print("trigger disk cleanup aleart")
+else: print("restart backup service daemon")
+
+q8 = input("Enter role: student or visitor")
+q9 ="9"
+q10 ="10"
+q11 ="11"
+q12 ="12"
+
+if 
