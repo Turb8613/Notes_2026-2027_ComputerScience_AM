@@ -10,10 +10,7 @@ elif today==6: print ("today is saturday")
 else: print ("today is sunday")
 
 pased=int(input("How manny days passes"))
-day= pased + today
-
-if day > 7:
-    answer = day-7
+answer= pased + today
 
 if answer==1: print("today is monday")
 elif answer==2: print ("today is tuesday")
