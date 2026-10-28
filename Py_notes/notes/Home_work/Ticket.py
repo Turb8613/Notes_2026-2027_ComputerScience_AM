@@ -1,27 +1,12 @@
 speed = input("How fast were you going today")
-Birthday = input("Is today your birthday")
-
 speed = (int(speed)) 
-
+Birthday = input("Is today your birthday ")
 if Birthday == ("Yes"):
-    if speed < 65: ticket = 0
-    elif speed <66 >86: ticket =1
-    else: ticket = 3
-if ticket== 0:
-    print("You are free to go")
-elif ticket == 1:
-    print("I am going to have to write you a ticket")
-elif ticket == 2:
-    print("I am going to have to write you a ticket")
-
-
-else:
-    if speed < 60: ticket = 0
-    elif speed <61 >81: ticket =1
-    else: ticket = 3
-if ticket== 0:
-    print("You are free to go")
-elif ticket == 1:
-    print("I am going to have to write you a ticket")
-elif ticket == 2:
-    print("I am going to have to write you a ticket")
+    if speed < 60: print("have a good day")
+    elif speed < 61 > 81: print("you get a small ticket")
+    else: print("You get a large ticket")
+else: 
+    if speed < 60: print("have a good day")
+    elif speed < 61 > 81: print("you get a small ticket")
+    else: print("You get a large ticket")
+    
