@@ -1,0 +1,11 @@
+int1 = int(input("What is number 1"))
+int2 = int(input("What is number 2"))
+int3 = int(input("What is number 3"))
+
+if int1 > int2 > int3: print (f"{int1} {int2} {int3}")
+elif int3 > int2 > int1: print (f"{int3} {int2} {int1}")
+elif int2 > int3 > int1: print (f"{int2} {int3} {int1}")
+elif int3 > int1 > int2: print (f"{int3} {int1} {int2}")
+elif int1 > int3 > int2: print (f"{int1} {int3} {int2}")
+elif int2 > int1 > int3: print (f"{int2} {int2} {int3}")
+else: (f"{int1} {int2} {int3}")
