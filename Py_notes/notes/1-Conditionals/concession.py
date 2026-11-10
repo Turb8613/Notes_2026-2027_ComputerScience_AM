@@ -1,33 +1,25 @@
 #iteration 1 -popcorn
-'''
-ask the user what size popcorn they want
-    small - $5.00
-    medium - $6.00
-    large -$7.00
-    print out their total
-        subtotal: $_._
-'''
-small = 5.00
-medium = 6.00
-large = 7.00
-popcorn = ("test")
-q2 = ("test2")
-subtotal=0
-popcorn = input("do you want popcorn")
-if popcorn == ("yes"):
-    q2=input("what size popcorn do you like S,M,L").lower()
-else:q2="n"
-print("thank you enjoy your movie")
+order=[]
+orderagain=()
+while(orderagain):
+    popcorn = ("test")
+    q2 = ("test2")
+    subtotal=0
+    popcorn = input("do you want popcorn")
+    if popcorn == ("yes"):
+        q2=input("what size popcorn do you like S,M,L").lower()
+    else:q2="n"
+    print("thank you enjoy your movie")
 
-if q2 == ("s"):
-    subtotal+=5
-elif q2 == ("m"):
-    subtotal+=6
+    if q2 == ("s"):
+        subtotal+=5
+    elif q2 == ("m"):
+        subtotal+=6
 elif q2 == ("l"):
     subtotal+=7
 
 print(f"subtotal: ${subtotal}")
-
+order.append(q2)
 #iteration 2 -pop
 soda = input("do you want a soda today y/n").lower()
 so = "Plan"
@@ -49,29 +41,10 @@ elif so =="l":
     subtotal+=.38 
 
 print(f"subtotal: ${subtotal}")
+order.append(so)
 #iteration 3 -candy
 candy=("none")
 candytype = ("yum")
-'''
-    Do you want any candy?
-        What type of candy do you want
-        mnm
-            plain
-            peanut
-            pb
-            mini
-        skittles
-            regular
-            tropical
-        worlds finest chocolate bars -2
-            wafer
-            milk chocolate
-            dark chocolate
-            almonds
-            caramel
-        recce's-2
-        nerds gummy clusters
-'''
 candyquestion =input("do you want a candy")
 if candyquestion == ("yes"):
     candytype =input('''
@@ -121,14 +94,15 @@ elif candytype == "g":
     subtotal+=3
 
 print(f"subtotal: ${subtotal}")
+order.append(candytype)
 #iteration 4 -butter
 pump= input("how many pumps do you want")
 subtotal += int(pump)*0.25 
 print(f"subtotal: ${subtotal}")
-
+order.append(pump)
 #iteration 5 -print
 discount="Na"
-if not(q2 == "n"or so == "n" or candytype == "n"):
+if 'n' not in order:
     print("Here is a discount for a dollar off")
     subtotal -= 1
     discount=True
@@ -136,11 +110,10 @@ if not(q2 == "n"or so == "n" or candytype == "n"):
 print(f'''
 
     Your order:
-        popcorn = {q2}
-        drink = {so}
-        candy = {candytype}
-        butter ={pump}
-
+        popcorn = {order[0]}
+        drink = {order[1]}
+        candy = {order[2]}
+        butter ={order[3]}
         discount ={discount}
 
         subtotal ={subtotal}
