@@ -16,6 +16,16 @@ def checkout(order):
     #show total
     return
 
+def orderItem3Option():
+    #ask the user if they want the item y/n
+    #if they do, what size SML
+    #return the orderchoice and price
+    ui = userInput(f"Would you like a {item} Y/N ",["y","n"])
+    if ui == "y":
+        ui = userInput(f"What size {item} would you want {sizes}",sizes)
+        indexOfChoice = sizes.index(ui)
+        return sizes[indexOfChoice],prices[indexOfChoice]
+    return "n",0
 
 def checkForDiscount(order):
     #are you a senior
@@ -28,45 +38,17 @@ while(orderagain=="y"):
     #iteration 1 - popcorn
     subtotal=0
     order=[]                            #order will store the user's order
-    ui = input('''
-    What size popcorn do you want?
-        (s) small = $5.00
-        (m) medium = $6.00
-        (l) large = $7.00
-        (n) no popcorn
-    ''').lower()   #forcing the input to be lower
-    if ui == "s":
-        subtotal+=5
-    elif ui == "m":
-        subtotal+=6
-    elif ui == "l":
-        subtotal+=7
-    else:
-        print("No Popcorn, but why?")
-    order.append(ui)               #appending or adding to the order their popcorn order
+    
+    choice,price = orderItem3Option("popcorn",["s","m","l"],[6,7,8])
+    subtotal+=price
+    order.append(choice)
     print(f"subtotal: ${subtotal}")
 
     #iteration 2 - soda pop
-    userInput = input("Would you like a drink? (y/n)").lower()
-    if userInput=="y":
-        userInput = input('''
-    What size soda do you want?
-        (s) small = $3.00
-        (m) medium = $4.00
-        (l) large = $5.00
-    ''')
-        if userInput=="s":
-            subtotal+=3
-        elif userInput=="m":
-            subtotal+=4
-        elif userInput =="l":
-            subtotal+=5
-            if input("Would you like a child size for .38 more? (y/n)?")=="y":
-                subtotal+=.38
-                userInput = "c"
-    order.append(userInput)               #appending or adding to the order their popcorn order
-    print(f"subtotal: ${subtotal:.2f}")    #:.2f means 2 floating points
-
+    choice,price = orderItem3Option("drink",["s","m","l"],[3,4,5])
+    subtotal+=price
+    order.append(choice)
+    print(f"subtotal: ${subtotal}")
     #iteration 3 - candy
     flavors=""
     candy = input("Do you want any candy? (y/n)")
