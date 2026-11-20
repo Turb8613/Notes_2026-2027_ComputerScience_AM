@@ -38,11 +38,20 @@ def userMove(player,board):
 
 
 #check for winner
-def checkForWinner(gameboard):
-#   Horizantal
-    for r in board:
-       if r[0] == r[1] and r[1] == r[2] and r[0] != " ":
-            print(f"Winner Winner Turkey Dinner {player} Won!")
+def checkForWinner(board):
+    #check for hori winner
+    for r in range(3):
+        if(board[r][0] == board[r][1] and board[r][1] == board[r][2] and board[r][0] != " "):
+            print("\n"*50)
+            print("Winner winner, turkey dinner!")
+            printBoard(board)
+            return True
+    #check for vert winner
+    for c in range(3):
+        if(board[0][c] == board[1][c] and board[1][c] == board[2][c] and board[0][c] != " "):
+            print("\n"*50)
+            print("Winner winner, turkey dinner!")
+            printBoard(board)
             return True
 
 #   Diagonal
