@@ -37,7 +37,7 @@ print(f"Total Pokemon Imported: {len(pokedex)}")
 '''
 
 pdb = input("what pokemon are you looking for ")
-if pdb == pokedex:
+if pdb in pokedex:
     print("true")
 
 else: print("false")
