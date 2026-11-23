@@ -13,7 +13,7 @@ class Pokemon:
         self.species = newSpecies
 
 
-    def __str___(self):
+    def __str__(self):
                  novesormated = ", ".join(self.moves)
                  out=self.species+"\n"
                  out+=f"\t{self.level}\n"
