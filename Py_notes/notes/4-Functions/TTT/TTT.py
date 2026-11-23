@@ -1,12 +1,14 @@
 #import
 import ollama
+import re
 
 #var
 gameboard=[[" "," "," "],
            [" "," "," "],
            [" "," "," "]
         ]
-
+row = 0
+col = 0
 player= "X"
 #funct
 
@@ -36,35 +38,39 @@ def userMove(player,board):
 def aiMove(player, board):
     print(f"It is {player}'s turn (Ollama)...")
     
-    # Track open spots to tell the AI what its options are
     free_spots = []
     for r in range(3):
         for c in range(3):
             if board[r][c] == " ":
-                free_spots.append(f"{r+1},{c+1}")
+                free_spots.append((r, c))
+
+    if not free_spots:
+        return
                 
     prompt = (
         f"You are playing Tic-Tac-Toe as 'O'. The current board layout is:\n{board}\n"
-        f"Pick one empty spot from this list: {free_spots}. "
-        "If you see a move that would let you win, take it. If the opponent is about to win, block them. "
-        "If there are no immediate wins or blocks, pick a random available spot."
-        "be agressive and try to win,"
-        "Respond with ONLY the row and column separated by a comma (e.g., 1,3). Do not say anything else."
+       f"If you see a move that would let you win, take it. If the opponent is about to win, block them."
+       f"If there are no immediate wins or blocks, pick a random available spot."
+       f"be agressive and try to win"
+       f"Respond with ONLY the row and column separated by a comma (e.g., 1,3). Do not say anything else."
+       f"there are 3 rows and 3 columns, the top left is 1,1 and the bottom right is 3,3"
     )
     
-    try:
-        response = ollama.chat(
-            model='gemma4:31b',
-            messages=[{"role": "user", "content": prompt}],
-            options={"temperature": 0.1}
-        )
-        # Parse out the row and column numbers from the response
-        digits = [int(x) for x in response['message']['content'] if x.isdigit()]
-        row, col = digits[0] - 1, digits[1] - 1
-    except:
-        # Fallback to the first available spot if the AI breaks character or fails
-        row, col = [int(x) - 1 for x in free_spots[0].split(',')]
+    response = ollama.chat(
+        model='llama3.2',
+        messages=[{"role": "user", "content": prompt}],
+        options={"temperature": 0.1}
+    )
+    content = response["message"]["content"]
+    match = re.search(r"(?<!\d)([1-3])\s*,\s*([1-3])(?!\d)", content)
+    if match:
+        row, col = int(match.group(1)) - 1, int(match.group(2)) - 1
+        if board[row][col] == " ":
+            board[row][col] = player
+            return
 
+    print(f"AI returned an invalid move ({content!r}); choosing an available spot.")
+    row, col = free_spots[0]
     board[row][col] = player
 
 #check for winner
