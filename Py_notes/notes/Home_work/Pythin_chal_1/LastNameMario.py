@@ -1,6 +1,6 @@
 height = int(input("Enter the height: "))
-print (f"Height: {height}")
 
-
-for i in range(height):
-    print(f'{" "*(height-i)}{#*(height-i)} {'#'*(height-i)}')
+for row in range(height):
+    spaces = height - row - 1
+    blocks = row + 1
+    print(" " * spaces + "*" * blocks + " " + "*" * blocks)
